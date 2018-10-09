@@ -20,23 +20,23 @@ class ViewController: UIViewController {
         // タブに表示するビューの定義（ストーリーボードじ上のコントローラーを指定）
         let firstViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VC2") as! ViewController2
         let secondViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VC3") as! ViewController3
-        pagingViewController = FixedPagingViewController(viewControllers: [
+        self.pagingViewController = FixedPagingViewController(viewControllers: [
             firstViewController,
             secondViewController
             ])
         
         // タブの装飾
-        pagingViewController.backgroundColor = UIColor.white            // 非選択時の背景色
-        pagingViewController.textColor = UIColor.black                  // 非選択時のテキストの色
-        pagingViewController.selectedBackgroundColor = UIColor.white    // 選択時の背景色
-        pagingViewController.selectedTextColor = UIColor.red            // 選択時のテキストの色
-        pagingViewController.indicatorColor = UIColor.red               // 選択時のテキスト下部インジケーターの色
+        self.pagingViewController.backgroundColor = UIColor.white            // 非選択時の背景色
+        self.pagingViewController.textColor = UIColor.black                  // 非選択時のテキストの色
+        self.pagingViewController.selectedBackgroundColor = UIColor.white    // 選択時の背景色
+        self.pagingViewController.selectedTextColor = UIColor.red            // 選択時のテキストの色
+        self.pagingViewController.indicatorColor = UIColor.red               // 選択時のテキスト下部インジケーターの色
     
         // ビューの範囲一杯に子ビューの内容を表示する
-        addChild(pagingViewController)
-        view.addSubview(pagingViewController.view)
-        view.constrainToEdges(pagingViewController.view)
-        pagingViewController.didMove(toParent: self)
+        addChild(self.pagingViewController)
+        self.view.addSubview(self.pagingViewController.view)
+        self.view.constrainToEdges(self.pagingViewController.view)
+        self.pagingViewController.didMove(toParent: self)
     }
 }
 
